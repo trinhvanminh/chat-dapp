@@ -40,6 +40,6 @@ Account balance: 100000000000000000
 https://testnet.bscscan.com/address/0x8D6D12Fe0462Eaf888265091585402f7D0Ed0959
 
 - [#code](https://testnet.bscscan.com/address/0x8D6D12Fe0462Eaf888265091585402f7D0Ed0959#code)
--> get **Contract ABI** and save it to your DAPP ([contractABI](src/assets/contracts/DoubleMintABI.js))
+-> get **Contract ABI** and save it to your DAPP ([contractABI](src/constants/contracts/index.js))
 
 # write your DAPP
