@@ -14,74 +14,64 @@ const doubleMintServices = {
   //  read contract
   async checkUserExists(pubkey) {
     try {
-      const res = await DoubleMinContract.methods
-        .checkUserExists(pubkey)
-        .call();
-      return { error: null, data: res.data };
+      const res = await DoubleMinContract.methods.checkUserExists(pubkey).call();
+      return { error: null, data: res };
     } catch (err) {
-      return { error: err.response.data, data: null };
+      return { error: err, data: null };
     }
   },
 
-  async getMyFriendList() {
+  async getMyFriendList(account) {
     try {
-      const res = await DoubleMinContract.methods.getMyFriendList().call();
-      return { error: null, data: res.data };
+      const res = await DoubleMinContract.methods.getMyFriendList().call({ from: account });
+      return { error: null, data: res };
     } catch (err) {
-      return { error: err.response.data, data: null };
+      return { error: err, data: null };
     }
   },
 
-  async getUsername() {
+  async getUsername(address) {
     try {
-      const res = await DoubleMinContract.methods.getUsername().call();
-      return { error: null, data: res.data };
+      const res = await DoubleMinContract.methods.getUsername(address).call();
+      return { error: null, data: res };
     } catch (err) {
-      return { error: err.response.data, data: null };
+      return { error: err, data: null };
     }
   },
 
-  async readMessage(friend_key) {
+  async readMessage(friend_key, account) {
     try {
-      const res = await DoubleMinContract.methods
-        .readMessage(friend_key)
-        .call();
-      return { error: null, data: res.data };
+      const res = await DoubleMinContract.methods.readMessage(friend_key).call({ from: account });
+      return { error: null, data: res };
     } catch (err) {
-      return { error: err.response.data, data: null };
+      return { error: err, data: null };
     }
   },
   //  write contract
-  async addFriend(account, friend_key, name, callback) {
+  async addFriend(account, friend_key, name) {
     try {
-      const res = await DoubleMinContract.methods
-        .addFriend(friend_key, name)
-        .send({ from: account }, callback);
-      return { error: null, data: res.data };
+      const res = await DoubleMinContract.methods.addFriend(friend_key, name).send({ from: account });
+      return { error: null, data: res };
     } catch (err) {
-      return { error: err.response.data, data: null };
+      return { error: err, data: null };
     }
   },
 
-  async createAccount(account, name, callback) {
+  async createAccount(account, name) {
     try {
-      const res = await DoubleMinContract.methods
-        .createAccount(name)
-        .send({ from: account }, callback);
-      return { error: null, data: res.data };
+      const res = await DoubleMinContract.methods.createAccount(name).send({ from: account });
+      return { error: null, data: res };
     } catch (err) {
-      return { error: err.response.data, data: null };
+      return { error: err, data: null };
     }
   },
 
-  async sendMessage(account, friend_key, _msg, callback) {
+  async sendMessage(account, friend_key, _msg) {
     try {
-      const res = await DoubleMinContract.methods
-        .sendMessage(friend_key, _msg)
-        .send({ from: account }, callback);
-      return { error: null, data: res.data };
+      const res = await DoubleMinContract.methods.sendMessage(friend_key, _msg).send({ from: account });
+      return { error: null, data: res };
     } catch (err) {
-      return { error: err.response.data, data: null };
+      return { error: err, data: null };
     }
   },
 };

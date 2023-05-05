@@ -77,6 +77,6 @@ export const DoubleMintABI = [
   },
 ];
 
-export const contractAddress = "0x37566FccB0C2C9e5ee2d6fC5940b918aB8d92076";
+export const contractAddress = "0x8D6D12Fe0462Eaf888265091585402f7D0Ed0959";
 
 export const contractRPC = "https://data-seed-prebsc-1-s1.binance.org:8545";
